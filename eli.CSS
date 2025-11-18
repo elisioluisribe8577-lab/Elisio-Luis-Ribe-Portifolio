@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #001f33, #01213a, #003d5e);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+/* ======= CONTAINER PRINCIPAL ======= */
+.cv-container {
+  display: flex;
+  max-width: 1000px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0, 255, 242, 0.3);
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+/* ======= PERFIL ======= */
+.perfil {
+  width: 35%;
+  background: linear-gradient(180deg, #001f2d, #002d3d);
+  padding: 30px;
+  text-align: center;
+}
+
+.perfil img {
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  border: 3px solid #00fff2;
+  margin-bottom: 10px;
+  box-shadow: 0 0 20px #00fff2;
+}
+
+.perfil h1 {
+  font-size: 1.5em;
+}
+
+.perfil .titulo {
+  color: #00fff2;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.perfil h2 {
+  color: #00fff2;
+  font-size: 1.1em;
+  margin-top: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #00fff2;
+  padding-bottom: 5px;
+}
+
+.contato ul, .habilidades ul {
+  list-style: none;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.contato li, .habilidades li {
+  margin: 8px 0;
+  font-size: 0.9em;
+}
+
+.contato i {
+  color: #00fff2;
+  margin-right: 8px;
+}
+
+/* ======= HABILIDADES ======= */
+.barra {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.nivel {
+  height: 100%;
+  background: linear-gradient(90deg, #00fff2, #0aff9d);
+  border-radius: 3px;
+  transition: 0.5s;
+}
+
+.n90 { width: 90%; }
+.n85 { width: 85%; }
+.n80 { width: 80%; }
+.n75 { width: 75%; }
+
+/* ======= CONTEÚDO ======= */
+.conteudo {
+  width: 65%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.conteudo section h2 {
+  color: #00fff2;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #00fff2;
+  padding-bottom: 5px;
+}
+
+.conteudo p, li {
+  line-height: 1.6;
+  font-size: 0.95em;
+  color: #dcdcdc;
+}
+
+.exp-item {
+  margin-bottom: 20px;
+}
+
+.empresa {
+  color: #9be9ff;
+  font-size: 0.9em;
+  margin-bottom: 8px;
+}
+
+ul li::before {
+  content: "• ";
+  color: #00fff2;
+}
+
+/* ======= RESPONSIVO ======= */
+@media (max-width: 768px) {
+  .cv-container {
+    flex-direction: column;
+  }
+
+  .perfil, .conteudo {
+    width: 100%;
+  }
+
+  .conteudo {
+    padding: 20px;
+  }
+}

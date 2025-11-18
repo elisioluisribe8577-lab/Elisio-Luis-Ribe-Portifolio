@@ -1,467 +1,372 @@
 <!DOCTYPE html>
 <html lang="pt">
- <meta charset="UTF-8">
 <head>
-
+  <meta charset="UTF-8">
   <title>Elisio Luis Ribe</title>
+
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root{
+      --neon: rgb(63, 214, 58);
+      --bg1: rgb(0, 19, 18);
+      --bg2: rgb(0,0,0);
+      --bg3: rgb(20,48,59);
+      --bg4: rgb(3,2,24);
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(90deg, rgb(0, 19, 18), #000, rgb(20, 48, 59), rgb(3, 2, 24));
-      color: white;
-      padding: 10px;
-      scroll-behavior: smooth;
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
     }
 
-   
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      background-color: rgb(255, 255, 255);
-      border-radius: 50px;
-      position: fixed;
-      top: 0;
-      width: 98%;
-      height: 50px;
-      gap: 20px;
-      z-index: 100;
+    body{
+      font-family:'Poppins', sans-serif;
+      background: linear-gradient( var(--bg1), var(--bg2), var(--bg2), var(--bg1));
+      color:white;
       padding: 10px;
     }
 
-    nav a {
-      text-decoration: none;
-      color: rgb(0, 0, 0);
-      padding: 10px 15px;
-      display: block;
-      position: relative;
-      transition: 0.3s;
-      border-radius: 8px;
+    nav ul{
+      list-style:none;
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      padding:12px 20px;
+      background: rgba(255,255,255,0.05);
+      border-radius:50px;
+      backdrop-filter:blur(6px);
+      position:fixed;
+      top:10px;
+      width:95%;
+      left:50%;
+      transform:translateX(-50%);
+      border:1px solid rgba(63,214,58,0.4);
+      z-index:1000;
     }
 
-    nav a:hover,
-    nav a:target {
-      background-color: rgb(63, 214, 58);
-      color: black;
+    nav a{
+      text-decoration:none;
+      color:white;
+      font-weight:600;
+      padding:8px 15px;
+      transition:0.3s;
+      border-radius:8px;
     }
 
-    .cabecalho {
-      text-align: center;
-      margin-top: 90px;
-      color: white;
+    nav a:hover{
+      background:var(--neon);
+      color:black;
     }
 
-    .foto-container {
-      position: relative;
-      display: inline-block;
+    .cabecalho{
+      text-align:center;
+      margin-top:120px;
     }
 
-    .foto {
-      border-radius: 50%;
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      position: relative;
-      z-index: 2;
+    .foto-container{
+      position:relative;
+      display:inline-block;
     }
 
-    .anel {
-      position: absolute;
-      top: -10px;
-      left: -10px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 3px solid rgb(63, 214, 58);
-      animation: girar 4s linear infinite;
-      box-shadow: 0 0 10px rgb(63, 214, 58);
-      z-index: 1;
+    .foto{
+      width:200px;
+      height:200px;
+      border-radius:50%;
+      object-fit:cover;
+      position:relative;
+      z-index:2;
+      box-shadow:0 0 25px rgba(63,214,58,0.6);
     }
 
-    @keyframes girar {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
+    .anel{
+      position:absolute;
+      top:-12px;
+      left:-12px;
+      width:225px;
+      height:225px;
+      border-radius:50%;
+      border:3px solid var(--neon);
+      animation:spin 4s linear infinite;
+      box-shadow:0 0 20px var(--neon);
     }
 
-  
-    .subtitulo {
-      font-size: 1.2em;
-      color: rgb(63, 214, 58);
-      font-family: monospace;
-      border-right: 2px solid rgb(63, 214, 58);
-      white-space: nowrap;
-      overflow: hidden;
-      width: 0;
-      animation: digitar 5s steps(30, end) forwards, cursorPisca 0.7s infinite;
+    @keyframes spin{
+      100%{ transform:rotate(360deg); }
     }
 
-    @keyframes digitar {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 100%;
-      }
+    h1{
+      margin-top:15px;
+      font-size:2em;
     }
 
-    @keyframes cursorPisca {
-      50% {
-        border-color: transparent;
-      }
+    .subtitulo{
+      font-size:1.2em;
+      color:var(--neon);
+      font-family:monospace;
+      border-right:2px solid var(--neon);
+      white-space:nowrap;
+      overflow:hidden;
+      width:0;
+      animation:typing 5s steps(30) forwards, blink 0.7s infinite;
     }
 
-    main,
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      text-align: center;
-      color: white;
+    @keyframes typing{
+      to{ width:100%; }
     }
 
-  
-    .carousel-container {
-      position: relative;
-      width: 85%;
-      margin: 50px auto;
-      overflow: hidden;
-      border-radius: 20px;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(5px);
-      box-shadow: 0 0 30px rgba(63, 214, 58, 0.3);
-    }
-
-    .carousel-track {
-      display: flex;
-      transition: transform 0.0s ease;
-      scroll-behavior: smooth;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .carousel-track::-webkit-scrollbar {
-      display: none;
-    }
-
-    .foto-card {
-      min-width: 300px;
-      margin: 10px;
-      border-radius: 15px;
-      overflow: hidden;
-      position: relative;
-      flex-shrink: 0;
-      transition: transform 0.3s ease;
-    }
-
-    .foto-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    .foto-card:hover img {
-      transform: scale(1.05);
-    }
-
-    .legenda {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.5);
-      color: rgb(63, 214, 58);
-      font-weight: bold;
-      padding: 10px 0;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: 0.6s ease;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-      text-shadow: 0 0 10px rgb(63, 214, 58);
-    }
-
-    .foto-card:hover .legenda {
-      opacity: 1;
-      transform: translateY(0);
+    @keyframes blink{
+      50%{ border-color:transparent; }
     }
 
    
-    .prev,
-    .next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: rgb(63, 214, 58);
-      border: none;
-      padding: 10px;
-      font-size: 2em;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
-      transition: 0.3s;
+    section, main{
+      max-width:800px;
+      margin:50px auto;
+      text-align:center;
     }
 
-    .prev:hover,
-    .next:hover {
-      background-color: rgb(63, 214, 58);
-      color: black;
+    h2{
+      color:var(--neon);
+      margin-bottom:15px;
+      text-shadow:0 0 10px var(--neon);
     }
 
-    .prev {
-      left: 10px;
+    .carousel-container{
+      width:90%;
+      margin:auto;
+      overflow:hidden;
+      border-radius:20px;
+      background:rgba(0,0,0,0.3);
+      backdrop-filter:blur(5px);
+      box-shadow:0 0 25px rgba(63,214,58,0.3);
     }
 
-    .next {
-      right: 10px;
+    .carousel-track{
+      display:flex;
+      gap:15px;
+      padding:15px;
+      animation:scroll 25s linear infinite;
     }
 
-  
-    video {
-      width: 80%;
-      max-width: 600px;
-      height: auto;
-      border-radius: 10px;
-      margin-top: 15px;
-      box-shadow: 0 0 15px rgba(63, 214, 58, 0.3);
+    @keyframes scroll {
+      0% { transform:translateX(0); }
+      100% { transform:translateX(-50%); }
     }
 
-   
-    .redes-sociais {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 20px;
+    .foto-card{
+      min-width:260px;
+      border-radius:15px;
+      overflow:hidden;
+      position:relative;
+      transition:0.3s;
     }
 
-    .icon {
-      width: 50px;
-      height: 50px;
-      display: inline-block;
-      border-radius: 50%;
-      background-size: 60%;
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: 0.3s;
-      box-shadow: 0 0 10px rgba(63, 214, 58, 0.4);
+    .foto-card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      display:block;
     }
 
-    .icon:hover {
-      transform: scale(1.2);
-      box-shadow: 0 0 15px rgb(63, 214, 58);
+    .legenda{
+      position:absolute;
+      bottom:0;
+      width:100%;
+      padding:10px;
+      text-align:center;
+      background:rgba(0,0,0,0.5);
+      color:var(--neon);
+      font-weight:600;
+      opacity:0;
+      transition:0.4s;
     }
 
-    .whatsapp {
-      background-color: hsl(0, 67%, 98%);
-      background-image: url('/img/whatsapp\ icon.jpg');
-
+    .foto-card:hover .legenda{
+      opacity:1;
     }
 
-    .instagram {
-      background-color: hsl(0, 67%, 98%);
-      background-image: url('/img/Intagram\ icon.jpg');
+    video{
+      width:90%;
+      max-width:600px;
+      border-radius:10px;
+      box-shadow:0 0 20px rgba(63,214,58,0.3);
     }
 
-    .facebook {
-      background-color: hsl(0, 67%, 98%) ;
-      background-image: url('/img/Faicbuk\ icon.jpg');
+    .redes-sociais{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      margin-top:20px;
     }
 
-    .tiktok {
-      background-color: hsl(0, 15%, 90%);
-      background-image: url('/img/TIKTOK\ icon.jpg');
+    .icon{
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      background-size:65%;
+      background-position:center;
+      background-color:rgb(255, 255, 255);
+      background-repeat:no-repeat;
+      box-shadow:0 0 12px rgba(63,214,58,0.4);
+      transition:0.3s;
     }
 
-  
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.5);
-      color: rgb(63, 214, 58);
-      margin-top: 50px;
-      border-top: 1px solid rgba(63, 214, 58, 0.3);
+    .icon:hover{
+      transform:scale(1.2);
+      box-shadow:0 0 20px var(--neon);
     }
+
+    .sr-only{
+      position:absolute;
+      width:1px;
+      height:1px;
+      padding:0;
+      margin:-1px;
+      overflow:hidden;
+      clip:rect(0,0,0,0);
+      white-space:nowrap;
+      border:0;
+    }
+  .whatsapp{ background-image:url('/img/whatsapp icon.jpg'); }
+  .instagram{ background-image:url('/img/Intagram icon.jpg'); }
+  .facebook{ background-image:url('/img/Faicbuk icon.jpg'); }
+  .tiktok{ background-image:url('/img/TIKTOK icon.jpg'); }
+  .email{ background-image:url("/img/ChatGPT Image Nov 15, 2025, 05_19_59 PM.png"); }
 
     
-    @media (max-width: 768px) {
-      nav ul {
-        flex-wrap: wrap;
-        gap: 10px;
-        font-size: 0.9em;
-      }
-
-      .foto {
-        width: 150px;
-        height: 150px;
-      }
-
-      .anel {
-        width: 170px;
-        height: 170px;
-        top: -8px;
-        left: -8px;
-      }
-
-      .carousel-track {
-        overflow-x: scroll;
-      }
-
-      .foto-card {
-        min-width: 200px;
-      }
-
-      .galeria-container {
-        width: 95%;
-      }
-
-      video {
-        width: 95%;
-      }
-
-      section,
-      main {
-        padding: 10px;
-      }
+    footer{
+      text-align:center;
+      padding:20px;
+      margin-top:50px;
+      background:rgba(0,0,0,0.4);
+      border-top:1px solid rgba(63,214,58,0.4);
+      color:var(--neon);
     }
+
+    @media(max-width:768px){
+      .foto{ width:150px; height:150px; }
+      .anel{ width:170px; height:170px; }
+      .foto-card{ min-width:180px; }
+      nav ul{ gap:10px; font-size:0.85em; flex-wrap:wrap; }
+      video{ width:100%; }
+    }
+
   </style>
 </head>
 
 <body>
 
-  
   <nav>
     <ul class="menu">
-      <li><a href="#inicio"><b>Início</b></a></li>
-      <li><a href="#sobre"><b>Sobre Mim</b></a></li>
-      <li><a href="#galeria"><b>Galeria</b></a></li>
-      <li><a href="#midia"><b>Mídia</b></a></li>
-      <li><a href="#cv"><b>CV</b></a></li>
-      <li><a href="#contactos"><b>Contactos</b></a></li>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#sobre">Sobre Mim</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#midia">Mídia</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contactos">Contactos</a></li>
     </ul>
   </nav>
 
- 
   <header id="inicio" class="cabecalho">
     <div class="foto-container">
-      <div class="anel"></div>
-      <img src="/img/IMG-20250914-WA0000 (3).jpg" alt="Foto de Perfil" class="foto">
+      <div class="anel">
+
+      </div>
+  <img src="/img/Gemini_Generated_Image_rz2vxerz2vxerz2v (1).png" class="foto" alt="Foto de Elisio">
     </div>
-    <h1><i>Olá! Eu sou</i> <strong>Elisio Luis Ribe</strong></h1>
-    <p class="subtitulo"><i>Futuro desenvolvedor de Software</i></p>
+    <br>
+    <br>
+    <h1>Olá! Eu sou <strong>Elisio Luis Ribe</strong></h1>
+    <br>
+    <p class="subtitulo">Futuro desenvolvedor de Software</p>
   </header>
+  <br>
+  <br>
+  <br>
+  <br>
+  <main id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Tenho <strong>20 anos</strong> e sou estudante do <strong>ITC - Instituto de Transportes e Comunicações</strong>.  
+      Estou me formando como <strong>Técnico de Suporte Informático</strong>   
+       e pretendo me tornar um <strong>Desenvolvedor de Software </strong>tenho interesse em tecnologia, <strong>programação e soluções digitais que ajudam a transformar o mundo
+</strong>.
+  
+
+
 
  
-  <main id="sobre">
-    <h2 style="color: rgb(63, 214, 58);">Sobre Mim</h2>
-    <p>
-      Tenho <strong>20 anos</strong> e sou estudante do <strong>Instituto de Transportes e Comunicações (ITC)</strong>.
-      Atualmente, estou a fazer o curso de <strong>Técnico de Suporte Informático</strong>, e o meu maior sonho é
-      tornar-me um <strong>Desenvolvedor de Software</strong> com foco em <strong>Programação Web</strong>.
     </p>
   </main>
 
-  
   <section id="galeria">
-    <h2 style="color: rgb(63, 214, 58);">Galeria</h2>
+    <h2>Galeria</h2>
+
     <div class="carousel-container">
-      <button class="prev">&#10094;</button>
       <div class="carousel-track">
         <div class="foto-card">
-          <img src="/img/FB_IMG_17462142872867860.jpg" alt="Foto 1">
+          <img src="/img/FB_IMG_17545814665740123.jpg" alt="Primeiros Passos">
           <div class="legenda">Primeiros Passos</div>
         </div>
+
         <div class="foto-card">
-          <img src="/img/FB_IMG_17475927193117667.jpg" alt="Foto 2">
+          <img src="/img/FB_IMG_17475927193117667.jpg" alt="Inspiração">
           <div class="legenda">Inspiração</div>
         </div>
+
         <div class="foto-card">
-          <img src="/img/FB_IMG_17537720213448746.jpg" alt="Foto 3">
+          <img src="/img/FB_IMG_17537720213448746.jpg" alt="Trabalho e Foco">
           <div class="legenda">Trabalho e Foco</div>
         </div>
+
         <div class="foto-card">
-          <img src="/img/FB_IMG_17542047630953637.jpg" alt="Foto 4">
+          <img src="/img/FB_IMG_17542047630953637.jpg" alt="Sonhos e Objetivos">
           <div class="legenda">Sonhos e Objetivos</div>
         </div>
+
         <div class="foto-card">
-          <img src="/img/IMG-20250925-WA0006.jpg" alt="Foto 5">
+          <img src="/img/IMG-20250925-WA0006.jpg" alt="Crescimento">
           <div class="legenda">Crescimento</div>
         </div>
       </div>
-      <button class="next">&#10095;</button>
     </div>
   </section>
 
- 
   <section id="midia">
-    <h2 style="color: rgb(63, 214, 58);">Mídia</h2>
+    <h2>Mídia</h2>
     <video controls>
-      <source src="/video html/Aula 02 Estrutura do HTML e Meta ViewPort - Curso de HTML e CSS - Aula 2.mp4" type="video/mp4">
+      <source src="/video html/Aula 01 Curso de HTML e CSS - Estrutura básica do HTML - Aula 1.mkv" type="video/x-matroska">
     </video>
   </section>
 
-  
   <section id="cv">
-    <h2 style="color: rgb(63, 214, 58);">CV</h2>
+    <h2>CV</h2>
     <a href="/Eli/eli.html"><b><i>Clique aqui</i> para abrir o CV</b></a>
   </section>
 
-
   <section id="contactos">
-    <h2 style="color: rgb(63, 214, 58);">Contactos</h2>
+    <h2>Contactos</h2>
     <p>☎ +258 857765687</p>
     <p>☎ +258 875043109</p>
-    <p>☎ +258835356521</p>
+    <p>☎ +258 835356521</p>
   </section>
 
- 
   <section id="redes">
-    <h2 style="color: rgb(63, 214, 58);">Minhas Redes Sociais</h2>
+    <h2>Minhas Redes Sociais</h2>
     <div class="redes-sociais">
-      <a href="https://wa.me/258857765687" target="_blank" class="icon whatsapp" title="WhatsApp"></a>
-      <a href="https://www.instagram.com/@ +258857765687" target="_blank" class="icon instagram" title="Instagram"></a>
-      <a href="https://www.facebook.com/@ +258857765687" target="_blank" class="icon facebook" title="Facebook"></a>
-      <a href="https://www.tiktok.com/@ +258857765687" target="_blank" class="icon tiktok" title="TikTok"></a>
+  <a href="https://wa.me/258857765687" target="_blank" class="icon whatsapp" aria-label="WhatsApp" title="WhatsApp"><span class="sr-only">WhatsApp</span></a>
+  <a href="#" class="icon instagram" aria-label="Instagram" title="Instagram"><span class="sr-only">Instagram</span></a>
+  <a href="#" class="icon facebook" aria-label="Facebook" title="Facebook"><span class="sr-only">Facebook</span></a>
+  <a href="#" class="icon tiktok" aria-label="TikTok" title="TikTok"><span class="sr-only">TikTok</span></a>
+  <a href="mailto:elisioluisribe8577@gmail.com" class="icon email" aria-label="Email" title="Enviar e-mail"><span class="sr-only">Enviar e-mail</span></a>
     </div>
   </section>
 
-  
   <footer>
-    <p><b>©</b> <span id="ano">2025</span> <b>Elisio Luis Ribe <b>_</b> <i> elisioluisribe8577@gmail.com</i></b></p>
+    © 2025 <b>Elisio Luis Ribe</b> — <i>elisioluisribe8577@gmail.com</i>
   </footer>
-
- 
-  <script>
-    const track = document.querySelector('.carousel-track');
-    let scrollPosition = 0;
-
-    function autoScroll() {
-      scrollPosition += 1;
-      if (scrollPosition >= track.scrollWidth - track.offsetWidth) {
-        scrollPosition = 0; 
-      }
-      track.scrollTo({
-        left: scrollPosition,
-        behavior: 'smooth'
-      });
-    }
-
-    setInterval(autoScroll, 30); 
-  </script>
 
 </body>
 </html>
